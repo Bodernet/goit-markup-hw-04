@@ -4,6 +4,7 @@
   --color-hover: #404bbf;
   --color-bg-icons: #f4f4fd;
   --color-border-icons: #8e8f99;
+  --color-footer-soc: #31d0aa;
 }
 .body {
   font-family: Roboto, sans-serif;
@@ -84,17 +85,27 @@ a {
   line-height: 150%;
   letter-spacing: 0.02em;
   padding: 24px 0;
+  position: relative;
 }
+
 .nav-link:hover {
   color: var(--color-hover);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .nav-link:focus {
   color: var(--color-hover);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.nav-link:active {
-  padding: 20px 0 4px;
-  color: var(--color-hover);
-  border-bottom: 1px solid #e7e9fc;
+.nav-link:active::after {
+  padding-bottom: 0;
+  display: block;
+  width: 48px;
+  height: 4px;
+  content: "";
+  background-color: #404bbf;
+  position: absolute;
+  bottom: 0;
+  border-radius: 2px;
 }
 .addres-tel-mail {
   font-style: normal;
@@ -119,7 +130,8 @@ a {
 }
 
 /* section title */
-.order-section {
+.order-inner {
+  max-width: 1440px;
   background-color: var(--color-gren);
   padding: 188px 0;
   background-image: linear-gradient(
@@ -130,8 +142,6 @@ a {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-}
-.order-inner {
   flex-shrink: 0;
 }
 .order-title {
@@ -166,9 +176,11 @@ a {
 }
 .order-button:hover {
   background-color: var(--color-hover);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .order-button:focus {
   background-color: var(--color-hover);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* section about company */
@@ -245,6 +257,9 @@ a {
   width: calc((100% - 72px) / 4);
   border-bottom: 1px solid #e7e9fc;
   border-radius: 0px 0px 4px 4px;
+  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 1px 6px 0px rgba(46, 47, 66, 0.08);
 }
 .team-name {
   color: var(--color-gren);
@@ -285,7 +300,15 @@ a {
   justify-content: center;
   width: 100%;
   height: 100%;
-  fill: #f4f4fd;
+  fill: var(--color-bg-icons);
+}
+.team-social-icons:hover {
+  background-color: var(--color-hover);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.team-social-icons:focus {
+  background-color: var(--color-hover);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* portfolio */
 .portfolio-title {
@@ -308,6 +331,12 @@ a {
 .portfolio-linc {
   width: calc((100% - 48px) / 3);
 }
+.portfolio-linc:hover {
+  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 1px 6px 0px rgba(46, 47, 66, 0.08);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 .portfolio-name {
   color: var(--color-gren);
   font-size: 20px;
@@ -329,11 +358,43 @@ a {
   border: 1px solid #e7e9fc;
   border-top: 0;
 }
+.portfolio-img {
+  position: relative;
+  overflow: hidden;
+}
+.portfolio-everley {
+  flex-shrink: 0;
+  background: var(--color-blue);
+  position: absolute;
+  inset: 0;
+  transform: translateY(100%);
+  transition: transform 0.3s;
+}
+
+.portfolio-everley p {
+  width: 296px;
+  color: var(--color-bg-icons);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  margin-top: 40px;
+  margin-left: 30px;
+}
+.portfolio-linc:hover .portfolio-everley {
+  transform: translateY(0);
+}
 
 /* footer */
-.footer-background {
+.footer-all {
   background: var(--color-gren);
   padding: 100px 0 100px;
+}
+.footer-box {
+  display: flex;
+}
+.logo-box {
+  margin-right: 120px;
 }
 .footer-logo {
   display: flex;
@@ -349,13 +410,51 @@ a {
   margin-bottom: 16px;
 }
 .footer-accent {
-  color: #f4f4fd;
+  color: var(--color-bg-icons);
 }
 .footer-text {
   max-width: 264px;
   font-size: 16px;
   font-weight: 400;
   line-height: 150%;
-  color: #f4f4fd;
+  color: var(--color-bg-icons);
   letter-spacing: 0.02em;
+}
+.footer-text-media {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+.footer-social {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  margin-top: 16px;
+}
+.footer-social-icons {
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-blue);
+  border-radius: 50%;
+  padding: 0;
+}
+.footer-social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  fill: #f4f4fd;
+}
+.footer-social-icons:hover {
+  background-color: var(--color-footer-soc);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.footer-social-icons:focus {
+  background-color: var(--color-footer-soc);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
