@@ -142,20 +142,18 @@ a {
   max-width: 1440px;
   background-color: var(--color-gren);
   background-image: linear-gradient(
-    rgba(46, 47, 66, 0.7),
-    rgba(46, 47, 66, 0.7)
-  ),
-  url(../images/img-name.jpg);
-background-repeat: no-repeat;
-background-size: cover;
-background-position: center;
-flex-shrink: 0;
-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1)
-
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../images/img-name.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  flex-shrink: 0;
+  margin: 0 auto;
 }
 .order-inner {
-   padding: 188px 0;
-  
+  padding: 188px 0;
 }
 .order-title {
   max-width: 496px;
@@ -186,14 +184,15 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1)
   min-width: 169px;
   height: 56px;
   border: none;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .order-button:hover {
   background-color: var(--color-hover);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .order-button:focus {
   background-color: var(--color-hover);
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* section about company */
@@ -303,23 +302,23 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1)
 .team-social-icons {
   width: 40px;
   height: 40px;
-  background-color: var(--color-blue);
-  border-radius: 50%;
   padding: 0;
 }
 .team-social-icons a {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: var(--color-blue);
+  border-radius: 50%;
   width: 100%;
   height: 100%;
   fill: var(--color-bg-icons);
 }
-.team-social-icons:hover {
+.team-social-icons:hover a {
   background-color: var(--color-hover);
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.team-social-icons:focus {
+.team-social-icons:focus a {
   background-color: var(--color-hover);
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -407,9 +406,11 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1)
 }
 .footer-box {
   display: flex;
+  align-items: baseline;
 }
 .logo-box {
   margin-right: 120px;
+  align-items: baseline;
 }
 .footer-logo {
   display: flex;
@@ -434,6 +435,9 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1)
   line-height: 150%;
   color: var(--color-bg-icons);
   letter-spacing: 0.02em;
+}
+.footer-social-media {
+  align-items: baseline;
 }
 .footer-text-media {
   font-size: 16px;
